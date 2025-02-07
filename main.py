@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from constants import mycey
+from constants import openai_key
 from langchain.llms import OpenAI
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
@@ -17,7 +17,7 @@ import faiss
 
 class basic:
     def __init__(self,dim=1536):
-        os.environ["OPENAI_API_KEY"]=mycey
+        os.environ["OPENAI_API_KEY"]=openai_key
         self.llm=OpenAI(temperature=0.8,verbose=False)
         self.dim=dim
         self.index = faiss.IndexFlatL2(dim)
